@@ -1,0 +1,47 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Miracle Chip8 Rewrite - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/resource.res" /d "_DEBUG" "G:\Programming\My Programs\Miracle Chip8 Rewrite\resource.rc"" 
+Creating temporary file "C:\DOCUME~1\Benjamin\LOCALS~1\Temp\RSPA1.tmp" with contents
+[
+/nologo /MD /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/Miracle Chip8 Rewrite.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\Programming\My Programs\Miracle Chip8 Rewrite\cpu.c"
+"G:\Programming\My Programs\Miracle Chip8 Rewrite\fileio.c"
+"G:\Programming\My Programs\Miracle Chip8 Rewrite\graphics.c"
+"G:\Programming\My Programs\Miracle Chip8 Rewrite\main.c"
+"G:\Programming\My Programs\Miracle Chip8 Rewrite\sdlfunc.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Benjamin\LOCALS~1\Temp\RSPA1.tmp" 
+Creating temporary file "C:\DOCUME~1\Benjamin\LOCALS~1\Temp\RSPA2.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib sdl.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Miracle Chip8 Rewrite.pdb" /debug /machine:I386 /out:"Debug/Miracle Chip8 Rewrite.exe" /pdbtype:sept 
+".\Debug\cpu.obj"
+".\Debug\fileio.obj"
+".\Debug\graphics.obj"
+".\Debug\main.obj"
+".\Debug\sdlfunc.obj"
+".\Debug\resource.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\Benjamin\LOCALS~1\Temp\RSPA2.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+cpu.c
+fileio.c
+graphics.c
+main.c
+sdlfunc.c
+Linking...
+
+
+
+<h3>Results</h3>
+Miracle Chip8 Rewrite.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
