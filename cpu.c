@@ -105,234 +105,237 @@ int UpdateTimers(unsigned long int interval, void *param)
 
 void Interpret()
 {
-	GetOpcode();
-
-	switch (opcode1)
+	for (;;)
 	{
-	case 0x0:
+		CheckSDLEvents();
+		GetOpcode();
+
+		switch (opcode1)
 		{
-			switch(opcode3)
+		case 0x0:
+		{
+			switch (opcode3)
 			{
 			case 0xE:
+			{
+				switch (opcode4)
 				{
-					switch (opcode4)
-					{
-					case 0x0:
-						{
-							// Clear the screen
-							ClearScreen();
-						}
-					break;
-					case 0xE:
-						{
-							// Return from subroutine
-							ReturnFromSub();
-						}
-					break;
-					}
+				case 0x0:
+				{
+					// Clear the screen
+					ClearScreen();
 				}
+				break;
+				case 0xE:
+				{
+					// Return from subroutine
+					ReturnFromSub();
+				}
+				break;
+				}
+			}
 			break;
 			}
 		}
-	break;
-	case 0x1:
+		break;
+		case 0x1:
 		{
 			JumpToAddress();
 		}
-	break;
-	case 0x2:
+		break;
+		case 0x2:
 		{
 			JumpToSub();
 		}
-	break;
-	case 0x3:
+		break;
+		case 0x3:
 		{
 			SkipIfRegEqual();
 		}
-	break;
-	case 0x4:
+		break;
+		case 0x4:
 		{
 			SkipIfRegNotEqual();
 		}
-	break;
-	case 0x5:
+		break;
+		case 0x5:
 		{
 			SkipIfRegEqualReg();
 		}
-	break;
-	case 0x6:
+		break;
+		case 0x6:
 		{
 			LoadRegWithConstant();
 		}
-	break;
-	case 0x7:
+		break;
+		case 0x7:
 		{
 			AddConstantToReg();
 		}
-	break;
-	case 0x8:
+		break;
+		case 0x8:
 		{
-			switch(opcode4)
+			switch (opcode4)
 			{
 			case 0x0:
-				{
-					LoadRegWithReg();
-				}
+			{
+				LoadRegWithReg();
+			}
 			break;
 			case 0x1:
-				{
-					OrRegWithReg();
-				}
+			{
+				OrRegWithReg();
+			}
 			break;
 			case 0x2:
-				{
-					AndRegWithReg();
-				}
+			{
+				AndRegWithReg();
+			}
 			break;
 			case 0x3:
-				{
-					XorRegWithReg();
-				}
+			{
+				XorRegWithReg();
+			}
 			break;
 			case 0x4:
-				{
-					AddRegToReg();
-				}
+			{
+				AddRegToReg();
+			}
 			break;
 			case 0x5:
-				{
-					SubRegFromReg();
-				}
+			{
+				SubRegFromReg();
+			}
 			break;
 			case 0x6:
-				{
-					ShiftRegRight();
-				}
+			{
+				ShiftRegRight();
+			}
 			break;
 			case 0x7:
-				{
-					RSubRegFromReg();
-				}
+			{
+				RSubRegFromReg();
+			}
 			break;
 			case 0xE:
-				{
-					ShiftRegLeft();
-				}
+			{
+				ShiftRegLeft();
+			}
 			break;
 			}
 		}
-	break;
-	case 0x9:
+		break;
+		case 0x9:
 		{
 			SkipIfRegNotEqualReg();
 		}
-	break;
-	case 0xA:
+		break;
+		case 0xA:
 		{
 			LoadIndexWithConstant();
 		}
-	break;
-	case 0xB:
+		break;
+		case 0xB:
 		{
 			JumpToAddressPlusReg0();
 		}
-	break;
-	case 0xC:
+		break;
+		case 0xC:
 		{
 			CreateRandomNumber();
 		}
-	break;
-	case 0xD:
+		break;
+		case 0xD:
 		{
 			DrawSprite();
 			UpdateDisplay();
 		}
-	break;
-	case 0xE:
+		break;
+		case 0xE:
 		{
-			switch(opcode3)
+			switch (opcode3)
 			{
 			case 0x9:
-				{
-					SkipIfKeyPressed();
-				}
+			{
+				SkipIfKeyPressed();
+			}
 			break;
 			case 0xA:
-				{
-					SkipIfKeyNotPressed();
-				}
+			{
+				SkipIfKeyNotPressed();
+			}
 			break;
 			}
 		}
-	break;
-	case 0xF:
+		break;
+		case 0xF:
 		{
 			switch (opcode3)
 			{
 			case 0x0:
+			{
+				switch (opcode4)
 				{
-					switch(opcode4)
-					{
-					case 0x7:
-						{
-							GetDelayTimerIntoReg();
-						}
-					break;
-					case 0xA:
-						{
-							WaitForKeyPress();
-						}
-					break;
-					}
+				case 0x7:
+				{
+					GetDelayTimerIntoReg();
 				}
+				break;
+				case 0xA:
+				{
+					WaitForKeyPress();
+				}
+				break;
+				}
+			}
 			break;
 			case 0x1:
+			{
+				switch (opcode4)
 				{
-					switch(opcode4)
-					{
-					case 0x5:
-						{
-							SetDelayTimer();
-						}
-					break;
-					case 0x8:
-						{
-							SetSoundTimer();
-						}
-					break;
-					case 0xE:
-						{
-							AddRegToIndex();
-						}
-					break;
-					}
+				case 0x5:
+				{
+					SetDelayTimer();
 				}
+				break;
+				case 0x8:
+				{
+					SetSoundTimer();
+				}
+				break;
+				case 0xE:
+				{
+					AddRegToIndex();
+				}
+				break;
+				}
+			}
 			break;
 			case 0x2:
-				{
-					PointIndexToFont();
-				}
+			{
+				PointIndexToFont();
+			}
 			break;
 			case 0x3:
-				{
-					StoreBCD();
-				}
+			{
+				StoreBCD();
+			}
 			break;
 			case 0x5:
-				{
-					StoreRegsAtIndex();
-				}
+			{
+				StoreRegsAtIndex();
+			}
 			break;
 			case 0x6:
-				{
-					LoadRegsFromIndex();
-				}
+			{
+				LoadRegsFromIndex();
+			}
 			break;
 			}
 		}
-	break;
+		break;
+		}
 	}
-
 }
 
 void ClearScreen()

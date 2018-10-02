@@ -137,7 +137,6 @@
   <ItemGroup>
     <ClCompile Include="..\cpu.c" />
     <ClCompile Include="..\fileio.c" />
-    <ClCompile Include="..\graphics.c" />
     <ClCompile Include="..\sdlfunc.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>

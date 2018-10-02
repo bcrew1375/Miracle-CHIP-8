@@ -80,9 +80,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 						}
 					break;
 					}
+					if (OpenSDLWindow() == -1)
+						MessageBox(hwnd, "Could not open SDL window", "Error!", MB_OK);
+					Reset();
+					Interpret();
 				}
-				Reset();
-				Interpret();
 			}
 		break;
 		case MENUID_FILE_EXIT:
@@ -94,14 +96,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		break;
 		case MENUID_INTERPRETER_RUN:
 			{
-				if (OpenSDLWindow() == -1)
-					MessageBox(hwnd, "Could not open SDL window", "Error!", MB_OK);
-
-				for (;;)
-				{
-					CheckSDLEvents();
-					Interpret();
-				}
+				Interpret();
 			}
 		case MENUID_INTERPRETER_RESET:
 			{
