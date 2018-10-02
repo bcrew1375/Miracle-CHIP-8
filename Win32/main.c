@@ -82,6 +82,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 					}
 				}
 				Reset();
+				Interpret();
 			}
 		break;
 		case MENUID_FILE_EXIT:

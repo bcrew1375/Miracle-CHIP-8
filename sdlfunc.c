@@ -321,7 +321,7 @@ int CheckSDLEvents()
 
 void StartTimer()
 {
-	timerID = SDL_AddTimer((1000 / 60), UpdateTimers, NULL);
+	timerID = SDL_AddTimer((1000 / 30), UpdateTimers, NULL);
 }
 
 void RemoveTimer()
